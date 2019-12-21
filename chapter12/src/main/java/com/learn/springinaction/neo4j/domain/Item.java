@@ -1,4 +1,4 @@
-package com.learn.springinaction.domain;
+package com.learn.springinaction.neo4j.domain;
 
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;

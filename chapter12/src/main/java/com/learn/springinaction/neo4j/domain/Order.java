@@ -1,5 +1,7 @@
-package com.learn.springinaction.domain;
+package com.learn.springinaction.neo4j.domain;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
@@ -8,11 +10,15 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @NodeEntity
+@Document
 public class Order {
 
     @GraphId
     private Long id;
+
+    @Field("customer")
     private String customer;
+
     private String type;
 
     @RelatedTo(type="HAS_ITEMS")

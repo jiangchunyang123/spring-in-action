@@ -1,6 +1,6 @@
 package com.learn.springinaction.neo4j;
 
-import com.learn.springinaction.domain.Order;
+import com.learn.springinaction.neo4j.domain.Order;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.GraphRepository;
 

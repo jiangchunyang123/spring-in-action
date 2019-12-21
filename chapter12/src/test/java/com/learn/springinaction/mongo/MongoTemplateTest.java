@@ -1,5 +1,6 @@
 package com.learn.springinaction.mongo;
 
+import com.learn.springinaction.mongo.domain.MongoOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class MongoTemplateTest {
     public void tesSaveOrder() {
         long orderCount = mongoTemplate.getCollection("order").count();
         System.out.println(orderCount);
-        Order order = new Order();
+        MongoOrder order = new MongoOrder();
         order.setType("123");
         mongoTemplate.save(order, "order");
         orderCount = mongoTemplate.getCollection("order").count();

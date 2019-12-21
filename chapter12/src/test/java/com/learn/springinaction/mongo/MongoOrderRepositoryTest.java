@@ -1,5 +1,6 @@
 package com.learn.springinaction.mongo;
 
+import com.learn.springinaction.mongo.domain.MongoOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,19 +11,19 @@ import java.util.Arrays;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:mongodb-applicationContext.xml")
-public class OrderRepositoryTest {
+@ContextConfiguration(classes = MongoConfig.class)
+public class MongoOrderRepositoryTest {
 
     @Autowired
-    private OrderRepository orderRepository;
+    private MongoOrderRepository mongoOrderRepository;
 
     @Test
     public void testSave() {
-        Order order = new Order();
+        MongoOrder order = new MongoOrder();
         order.setType("hello");
         order.setCustomer("first");
-        orderRepository.save(order);
-        List<Order> orders = orderRepository.findByCustomer("first");
+        mongoOrderRepository.save(order);
+        List<MongoOrder> orders = mongoOrderRepository.findByCustomer("first");
         assert orders != null;
         assert orders.size() > 0;
         System.out.println(Arrays.deepToString(orders.toArray()));
@@ -30,11 +31,11 @@ public class OrderRepositoryTest {
 
     @Test
     public void testFindByChucksOrders() {
-        Order order = new Order();
+        MongoOrder order = new MongoOrder();
         order.setType("70");
         order.setCustomer("chuck Wagon");
-        orderRepository.save(order);
-        List<Order> list = orderRepository.findChucksOrders("70");
+        mongoOrderRepository.save(order);
+        List<MongoOrder> list = mongoOrderRepository.findChucksOrders("70");
         assert list != null && list.size() > 0;
         System.out.println(Arrays.deepToString(list.toArray()));
     }

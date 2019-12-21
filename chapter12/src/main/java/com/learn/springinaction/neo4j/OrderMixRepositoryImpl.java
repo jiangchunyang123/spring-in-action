@@ -1,6 +1,6 @@
 package com.learn.springinaction.neo4j;
 
-import com.learn.springinaction.domain.Order;
+import com.learn.springinaction.neo4j.domain.Order;
 import org.neo4j.helpers.collection.IteratorUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.conversion.Result;

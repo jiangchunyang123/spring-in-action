@@ -8,11 +8,11 @@ import org.springframework.data.neo4j.config.EnableNeo4jRepositories;
 import org.springframework.data.neo4j.config.Neo4jConfiguration;
 
 @Configuration
-@EnableNeo4jRepositories(basePackages = "com.learn.springinaction")
+@EnableNeo4jRepositories(basePackages = "com.learn.springinaction.neo4j")
 public class Neo4jConfig extends Neo4jConfiguration {
 
     public Neo4jConfig(){
-        setBasePackage("com.learn.springinaction");
+        setBasePackage("com.learn.springinaction.neo4j");
     }
 
     @Bean

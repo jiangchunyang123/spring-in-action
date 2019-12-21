@@ -1,8 +1,8 @@
 package com.learn.springinaction.neo4j;
 
-import com.learn.springinaction.domain.Item;
-import com.learn.springinaction.domain.LineItem;
-import com.learn.springinaction.domain.Order;
+import com.learn.springinaction.neo4j.domain.Item;
+import com.learn.springinaction.neo4j.domain.LineItem;
+import com.learn.springinaction.neo4j.domain.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

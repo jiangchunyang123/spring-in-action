@@ -1,4 +1,4 @@
-package com.learn.springinaction.domain;
+package com.learn.springinaction.neo4j.domain;
 
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
@@ -14,6 +14,13 @@ public class Product implements Serializable {
     private String name;
 
     private String sku;
+
+    public Product() {
+    }
+
+    public Product(String name) {
+        this.name = name;
+    }
 
     public String getSku() {
         return sku;

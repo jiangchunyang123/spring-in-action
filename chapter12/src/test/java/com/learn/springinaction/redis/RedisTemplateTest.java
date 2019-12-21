@@ -1,6 +1,6 @@
 package com.learn.springinaction.redis;
 
-import com.learn.springinaction.domain.Product;
+import com.learn.springinaction.neo4j.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ public class RedisTemplateTest {
 
     @Test
     public void testBoundKey() {
-        BoundValueOperations<String, Object> boundKeyOperations = redisTemplate.boundValueOps("bounds");
+        BoundValueOperations<String, Object> boundKeyOperations = redisTemplate.boundValueOps("boundsKey");
         boundKeyOperations.set("123456");
         assert "123456".equals(boundKeyOperations.get());
     }

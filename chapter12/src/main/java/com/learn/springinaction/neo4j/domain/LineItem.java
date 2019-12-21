@@ -1,10 +1,23 @@
-package com.learn.springinaction.mongo;
+package com.learn.springinaction.neo4j.domain;
 
-public class Item {
+
+import org.springframework.data.neo4j.annotation.EndNode;
+import org.springframework.data.neo4j.annotation.GraphId;
+import org.springframework.data.neo4j.annotation.RelationshipEntity;
+import org.springframework.data.neo4j.annotation.StartNode;
+
+@RelationshipEntity(type = "HAS_LINE_ITEM_FOR")
+public class LineItem {
+
+    @GraphId
     private Long id;
+
+    @StartNode
     private Order order;
-    private String product;
-    private double price;
+
+    @EndNode
+    private Product product;
+
     private int quantity;
 
     public Long getId() {
@@ -23,20 +36,12 @@ public class Item {
         this.order = order;
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getQuantity() {
