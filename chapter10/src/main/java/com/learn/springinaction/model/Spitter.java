@@ -66,7 +66,7 @@ public class Spitter {
         this.password = password;
     }
 
-    public Spitter( String username, String password,String firstName, String lastName) {
+    public Spitter(String username, String password, String firstName, String lastName) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;

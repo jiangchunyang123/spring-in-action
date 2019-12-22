@@ -27,6 +27,7 @@ public class JdbcSpitterRepository implements SpitterRepository {
 
     /**
      * lambda表达式
+     *
      * @param spittleId
      * @return
      */
@@ -35,10 +36,10 @@ public class JdbcSpitterRepository implements SpitterRepository {
         Spitter spitter = jdbcOperations.queryForObject(FIND_SPITTER_BY_ID,
                 (rs, rownum) ->
                         new Spitter(rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("password"),
-                rs.getString("fullName"),
-                rs.getString("email")),
+                                rs.getString("username"),
+                                rs.getString("password"),
+                                rs.getString("fullName"),
+                                rs.getString("email")),
                 spittleId);
         return spitter;
     }

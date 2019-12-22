@@ -7,18 +7,21 @@ import org.hibernate.SessionFactory;
 import java.io.Serializable;
 
 public class HibernateSpitterRepository {
-    private SessionFactory sessionFactory ;
+    private SessionFactory sessionFactory;
 
     public HibernateSpitterRepository(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    private Session currentSession(){
+
+    private Session currentSession() {
         return sessionFactory.getCurrentSession();
     }
-    public Long count(){
+
+    public Long count() {
         return 0L;
     }
-    public void save(Spitter spitter){
+
+    public void save(Spitter spitter) {
         Serializable id = currentSession().save(spitter);
     }
 }
