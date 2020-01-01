@@ -1,6 +1,5 @@
-package com.learn.springinaction.dao;
+package com.learn.springinaction;
 
-import com.learn.springinaction.model.Spitter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

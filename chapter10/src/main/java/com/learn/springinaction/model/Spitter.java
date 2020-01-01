@@ -1,12 +1,10 @@
 package com.learn.springinaction.model;
 
 
-import java.util.Objects;
-
 public class Spitter {
 
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String username;
     private String password;
     private Long id;
@@ -14,12 +12,11 @@ public class Spitter {
     public Spitter() {
     }
 
-    public Spitter(String firstName, String lastName, String username, String password, Long id) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Spitter(String firstname, String lastname, String username, String password) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.username = username;
         this.password = password;
-        this.id = id;
     }
 
     public Spitter(Long id, String username, String password, String fullName, String email) {
@@ -34,21 +31,6 @@ public class Spitter {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getUsername() {
         return username;
@@ -66,37 +48,20 @@ public class Spitter {
         this.password = password;
     }
 
-    public Spitter(String username, String password, String firstName, String lastName) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public String getFirstname() {
+        return firstname;
     }
 
-    @Override
-    public String toString() {
-        return "Spitter{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", id=" + id +
-                '}';
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Spitter spitter = (Spitter) o;
-        return Objects.equals(firstName, spitter.firstName) &&
-                Objects.equals(lastName, spitter.lastName) &&
-                Objects.equals(username, spitter.username) &&
-                Objects.equals(password, spitter.password);
+    public String getLastname() {
+        return lastname;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, username, password);
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

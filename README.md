@@ -1,2 +1,6 @@
 # spring-in-action
-sources while learning SpringInAction4
+
+本项目为学习springinaction4中的一些笔记和源码，一些源码来自于书本，
+有些地方可能做了微调，大致上还是保持一致的。  
+大部分代码在单元测试中进行了测试，单元测试本地已保证全部通过，大家可以从单元测试中了解使用。
+本项目中大部分配置都遵循原作倾向采用java配置，xml配置目前在springboot中基本已被抛弃，所以不再赘述

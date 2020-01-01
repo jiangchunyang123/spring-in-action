@@ -1,6 +1,38 @@
 # 10 通过spring和JDBC征服数据库
 
-## 10.1 
+## 10.1 spring的数据访问哲学
+
+从前面的几章可以看出，spring的目标之一就是允许我们在开发应用时，能够遵循面向对象的"针对接口编程"原则,Spring
+对数据库的访问也不例外
+为了避免应用与特定的数据访问策略耦合在一起，编写良好的repository应该以接口的方式暴露功能  
+为了将数据访问层与应用程序的其他部分隔离开来，Spring采用的方式之一，就是提供统一的异常体系，这个异常体系用于它支持的所有持久化
+方案中。
+
+### 10.1.1 了解Spring的数据访问异常体系
+JDBC的原生SQLException 到处都会抛出，然而大部分情况，没有告诉你哪里出错了，以及怎么处理，可能抛出SQLException的常见问题包括：
+- 应用无法连接数据库
+- 要执行的查询存在语法错误
+- 访问的表、数据库不存在
+- 试图插入或者更新的数据违反了数据库约束
+
+Spring提供了一套与平台无关的持久化异常，详情见spring in action 第四版290页
+
+### 10.1.2 数据访问模板化
+ 
+Spring使用模板方法模式，将数据访问过程中固定和可变的部分明确划分为两个不同的类：
+`模板`和`回调` ，模板中处理数据访问的固定部分：事务控制，管理资源以及处理异常 ，开发者只需要关心自己的数据访问逻辑即可  
+针对不同的持久化平台，spring提供了多个可选的模板，下表列出了Spring的所有数据访问模板，以及其用途
+
+|模板类|用途|
+|---|---|
+|CciTemplate|JCA CCI连接|
+|JdbcTemplate|JDBC连接|
+|NamedParameterJdbcTemplate|支持命名参数的JDBC连接|
+|SimpleJdbcTemplate|通过java5简化后的jdbc连接（Spring3.1中已废弃）|
+|HibernateTemplate|Hibernate3.x以上的Session|
+|SqlMapClientTemplate|iBatis SqlMap客户端|
+|JdoTemplate|java数据对象（Java Data Object）实现|
+|JpaTemplate|Java持久化API的实体管理器|
 
 ## 10.2 配置数据源
 
@@ -88,7 +120,7 @@ java版本的配置如下
 
     }
 ```
-### 10.2.5 使用profile选择数据源
+### 10.2.5 使用profile切换数据源
 在@Bean注解的方法上增加@Profile注解即可
 
 ## 10.3 在Spring中使用JDBC
