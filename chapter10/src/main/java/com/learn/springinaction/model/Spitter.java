@@ -2,26 +2,24 @@ package com.learn.springinaction.model;
 
 
 public class Spitter {
-
-    private String firstname;
-    private String lastname;
     private String username;
     private String password;
+    private String firstname;
+    private String lastname;
+
     private Long id;
 
     public Spitter() {
     }
 
-    public Spitter(String firstname, String lastname, String username, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Spitter(Long id, String username, String password, String firstname, String lastname) {
+        this.id = id;
         this.username = username;
         this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
-    public Spitter(Long id, String username, String password, String fullName, String email) {
-
-    }
 
     public Long getId() {
         return id;

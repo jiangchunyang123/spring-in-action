@@ -1,6 +1,8 @@
 package com.learn.springinaction;
 
+import com.learn.springinaction.dao.JdbcSpitterRepository;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,6 +12,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan(basePackageClasses = JdbcSpitterRepository.class)
 public class EmbeddedDatasourceConfig {
 
     @Profile("test")

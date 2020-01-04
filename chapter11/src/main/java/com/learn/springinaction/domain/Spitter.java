@@ -1,17 +1,27 @@
-package com.learn.springinaction;
+package com.learn.springinaction.domain;
 
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity(name = "spitter")
 public class Spitter {
 
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private String username;
+    @Column
     private String password;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Spitter() {
+
     }
 
     public Spitter(String firstName, String lastName, String username, String password, Long id) {

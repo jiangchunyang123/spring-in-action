@@ -26,7 +26,10 @@
         <module>chapter12</module>
     </modules>
     <properties>
-        <spring.version>4.0.6.RELEASE</spring.version>
+        <spring.version>4.0.7.RELEASE</spring.version>
+        <springDataJpaVersion>1.3.2.RELEASE</springDataJpaVersion>
+        <hibernateEntityManagerVersion>4.0.1.Final</hibernateEntityManagerVersion>
+
     </properties>
     <dependencies>
         <!-- Spring-->
@@ -54,6 +57,19 @@
             <version>1.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
