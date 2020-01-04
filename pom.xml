@@ -24,6 +24,7 @@
         <module>chapter10</module>
         <module>chapter11</module>
         <module>chapter12</module>
+        <module>chaptor13</module>
     </modules>
     <properties>
         <spring.version>4.0.7.RELEASE</spring.version>
@@ -38,7 +39,11 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
