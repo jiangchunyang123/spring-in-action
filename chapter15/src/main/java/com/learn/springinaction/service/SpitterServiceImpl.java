@@ -21,7 +21,7 @@ public class SpitterServiceImpl implements SpitterService {
 
     @Override
     public List<Spittle> getRecentSpittles(int count) {
-        return null;
+        return spittleRepository.findSpittles(0, count);
     }
 
     @Override
@@ -32,5 +32,10 @@ public class SpitterServiceImpl implements SpitterService {
     @Override
     public void saveSpitter(Spitter spitter) {
         spitterRepository.save(spitter);
+    }
+
+    @Override
+    public Spitter getSpitter(Long id) {
+        return spitterRepository.findOne(id);
     }
 }

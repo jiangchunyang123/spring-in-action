@@ -21,8 +21,8 @@ public class SpittleRepositoryImpl implements SpittleRepository {
     private JdbcOperations jdbcOperations;
 
     @Override
-    public List<Spittle> findSpittles(long max, int count) {
-        return createSpittleList(20);
+    public List<Spittle> findSpittles(long start, int count) {
+        return createSpittleList(count);
     }
 
     @Override

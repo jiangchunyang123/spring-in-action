@@ -1,12 +1,11 @@
 package com.learn.springinaction.web;
 
 
-import com.learn.springinaction.dao.SpittleRepository;
 import com.learn.springinaction.model.Spitter;
+import com.learn.springinaction.service.SpitterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -15,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestPart;
 @RequestMapping({"/spitter", "/homepage"})
 public class SpittleController {
 
-    private SpittleRepository spittleRepository;
+    private SpitterService spitterService;
 
     public SpittleController() {
     }
 
     @Autowired
-    public SpittleController(SpittleRepository spittleRepository) {
-        this.spittleRepository = spittleRepository;
+    public SpittleController(SpitterService spitterService) {
+        this.spitterService = spitterService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -32,14 +31,8 @@ public class SpittleController {
 
     @RequestMapping("/spittles")
     public String spittles(Model model) {
-        model.addAttribute(spittleRepository.findSpittles(Long.MAX_VALUE, 20));
+        model.addAttribute(spitterService.getRecentSpittles(20));
         return "spittles";
-    }
-
-    @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
-    public String spittle(@PathVariable("spittleId") Long spittleId, Model model) {
-        model.addAttribute(spittleRepository.findOne(spittleId));
-        return "spittle";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -50,7 +43,7 @@ public class SpittleController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegistion(Spitter spitter, @RequestPart() byte[] file) {
-        spittleRepository.save(spitter);
+        spitterService.saveSpitter(spitter);
         return "redirect:/spitter/" + spitter.getUsername();
     }
 

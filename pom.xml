@@ -27,6 +27,8 @@
         <module>chapter13</module>
         <module>chapter14</module>
         <module>chapter15</module>
+        <module>chapter16</module>
+        <module>chapter17</module>
     </modules>
     <properties>
         <spring.version>4.0.7.RELEASE</spring.version>
